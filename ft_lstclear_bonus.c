@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 15:16:03 by msindreu          #+#    #+#             */
-/*   Updated: 2022/06/10 12:44:52 by msindreu         ###   ########.fr       */
+/*   Created: 2022/06/17 18:32:14 by msindreu          #+#    #+#             */
+/*   Updated: 2022/06/17 19:20:27 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-int	ft_isalpha(int c)
+#include  "libft.h"
+
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	if (c < 'A' || (c > 'Z' && c < 'a') || c > 'z')
-		return (0);
-	return (1);
+	t_list	*tmp;
+
+	tmp = *lst;
+	while (*lst != NULL)
+	{
+		tmp = tmp->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
+	}
 }

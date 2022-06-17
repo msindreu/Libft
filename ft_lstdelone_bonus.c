@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 15:16:03 by msindreu          #+#    #+#             */
-/*   Updated: 2022/06/10 12:44:52 by msindreu         ###   ########.fr       */
+/*   Created: 2022/06/14 16:25:53 by msindreu          #+#    #+#             */
+/*   Updated: 2022/06/17 15:54:05 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (c < 'A' || (c > 'Z' && c < 'a') || c > 'z')
-		return (0);
-	return (1);
+	del(lst -> content);
+	free(lst);
 }

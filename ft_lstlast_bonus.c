@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 15:16:03 by msindreu          #+#    #+#             */
-/*   Updated: 2022/06/10 12:44:52 by msindreu         ###   ########.fr       */
+/*   Created: 2022/06/10 16:01:26 by msindreu          #+#    #+#             */
+/*   Updated: 2022/06/13 16:02:11 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isalpha(int c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (c < 'A' || (c > 'Z' && c < 'a') || c > 'z')
-		return (0);
-	return (1);
+	while (lst && lst -> next != NULL)
+		lst = lst -> next;
+	return (lst);
 }
