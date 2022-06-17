@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:44:52 by msindreu          #+#    #+#             */
-/*   Updated: 2022/06/17 19:52:22 by msindreu         ###   ########.fr       */
+/*   Updated: 2022/06/17 20:58:05 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start > ft_strlen(s))
 	{
 		p = malloc(1);
+		if (p == NULL)
+			return (NULL);
 		*p = '\0';
 		return (p);
 	}
