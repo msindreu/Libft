@@ -6,7 +6,7 @@
 /*   By: msindreu <msindreu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:08:03 by msindreu          #+#    #+#             */
-/*   Updated: 2022/06/17 19:52:25 by msindreu         ###   ########.fr       */
+/*   Updated: 2022/06/18 15:12:23 by msindreu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
 	t_list	*element;
+	void	*content;
 
 	new = 0;
 	while (lst != NULL)
 	{
-		element = ft_lstnew(f(lst->content));
+		content = f(lst->content);
+		element = ft_lstnew(content);
 		if (element == NULL)
 		{
-			if (element->content != NULL)
-				free(element->content);
+			free(content);
 			ft_lstclear(&new, del);
 			return (NULL);
 		}
